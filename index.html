@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Custom animation for fading in */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        
+        /* Glassmorphism effect */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center p-4">
+
+    <!-- Main Container -->
+    <main class="glass-panel w-full max-w-md p-8 rounded-2xl shadow-2xl text-center animate-fade-in">
+        
+        <!-- Profile Image Placeholder -->
+        <div class="relative w-32 h-32 mx-auto mb-6">
+            <div class="absolute inset-0 bg-gradient-to-tr from-purple-500 to-blue-500 rounded-full animate-pulse blur-sm"></div>
+            <div class="relative w-full h-full bg-gray-200 rounded-full overflow-hidden border-4 border-white shadow-lg flex items-center justify-center">
+                <i class="fas fa-user text-4xl text-gray-400"></i>
+            </div>
+            <div class="absolute bottom-2 right-2 bg-green-400 w-4 h-4 rounded-full border-2 border-white"></div>
+        </div>
+
+        <!-- Text Content -->
+        <h1 class="text-3xl font-bold text-gray-800 mb-2 delay-100 opacity-0 animate-fade-in">Hello, Friend!</h1>
+        <p class="text-gray-600 mb-8 delay-200 opacity-0 animate-fade-in">I'm a digital creator hosting my first app on GitHub. Welcome to my corner of the internet.</p>
+
+        <!-- Links Section -->
+        <div class="space-y-4 delay-300 opacity-0 animate-fade-in">
+            <a href="#" onclick="showModal('Portfolio', 'Redirecting to portfolio... (This is a demo link)')" class="block w-full py-3 px-6 bg-white border border-gray-200 rounded-xl hover:shadow-lg hover:border-purple-300 transition-all duration-300 flex items-center group">
+                <div class="w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center group-hover:bg-purple-600 group-hover:text-white transition-colors">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <span class="ml-4 font-semibold text-gray-700 group-hover:text-purple-600">My Portfolio</span>
+                <i class="fas fa-chevron-right ml-auto text-gray-300 group-hover:text-purple-400"></i>
+            </a>
+
+            <a href="#" onclick="showModal('Twitter', 'Opening Twitter... (This is a demo link)')" class="block w-full py-3 px-6 bg-white border border-gray-200 rounded-xl hover:shadow-lg hover:border-blue-300 transition-all duration-300 flex items-center group">
+                <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-500 flex items-center justify-center group-hover:bg-blue-500 group-hover:text-white transition-colors">
+                    <i class="fab fa-twitter"></i>
+                </div>
+                <span class="ml-4 font-semibold text-gray-700 group-hover:text-blue-500">Twitter / X</span>
+                <i class="fas fa-chevron-right ml-auto text-gray-300 group-hover:text-blue-400"></i>
+            </a>
+
+            <a href="#" onclick="showModal('Contact', 'Opening email client... (This is a demo link)')" class="block w-full py-3 px-6 bg-white border border-gray-200 rounded-xl hover:shadow-lg hover:border-green-300 transition-all duration-300 flex items-center group">
+                <div class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center group-hover:bg-green-600 group-hover:text-white transition-colors">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <span class="ml-4 font-semibold text-gray-700 group-hover:text-green-600">Contact Me</span>
+                <i class="fas fa-chevron-right ml-auto text-gray-300 group-hover:text-green-400"></i>
+            </a>
+        </div>
+
+        <footer class="mt-8 text-sm text-gray-400">
+            &copy; 2024 Hosted on GitHub Pages
+        </footer>
+    </main>
+
+    <!-- Custom Modal -->
+    <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50 p-4 backdrop-blur-sm transition-opacity opacity-0">
+        <div class="bg-white rounded-2xl p-6 max-w-sm w-full shadow-2xl transform scale-95 transition-transform">
+            <div class="text-center">
+                <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-purple-100 mb-4">
+                    <i class="fas fa-info text-purple-600 text-xl"></i>
+                </div>
+                <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">Action Triggered</h3>
+                <div class="mt-2">
+                    <p class="text-sm text-gray-500" id="modal-message">Content goes here.</p>
+                </div>
+            </div>
+            <div class="mt-5 sm:mt-6">
+                <button type="button" onclick="closeModal()" class="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-purple-600 text-base font-medium text-white hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 sm:text-sm">
+                    Got it!
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalMessage = document.getElementById('modal-message');
+        const modalContent = modal.querySelector('div[class*="bg-white"]');
+
+        function showModal(title, message) {
+            modalTitle.textContent = title;
+            modalMessage.textContent = message;
+            modal.classList.remove('hidden');
+            
+            // Small timeout to allow display:block to apply before changing opacity for transition
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalContent.classList.remove('scale-95');
+                modalContent.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeModal() {
+            modal.classList.add('opacity-0');
+            modalContent.classList.remove('scale-100');
+            modalContent.classList.add('scale-95');
+            
+            // Wait for animation to finish before hiding
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Close modal on outside click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
